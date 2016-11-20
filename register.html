@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>Hello MUI</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">	
+		<style> a{color: red;}</style>
+</head> 
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">注册</h1>
+		</header>
+		
+		<div class="mui-content">	
+			<!--头像--->
+			<div class="oa-contact-avatar " style="vertical-align: middle; text-align:center;margin:0 auto; padding:0px ;">
+				<img src="./images/60x60.gif" onclick="galleryImg();" style="margin-top: 15px; width: 100px; height: 100px;"  id="myimg"/>
+			</div>				
+			<!--头像end--->
+			
+			<div  style="margin-top: 6%;">
+			<!--性别/单、非单--->
+			<span style="margin-left: 30px;">					
+				<button id="sexnan" type="button" class="mui-btn mui-btn-danger" onclick='mysex(this.id);' style="padding: 5px;">
+		           ♂ 男
+		        </button>
+		        <button id="sexnv" type="button" class="mui-btn mui-btn-danger mui-btn-outlined" onclick="mysex(this.id);"  style="padding: 5px;">
+		            ♀ 女	
+		        </button>
+		       </span>
+		       
+		       <span style="margin-right: 30px; float:right;">
+				<button id="people_single"  onclick="mysingleOrdouble(this.id);" type="button" class="mui-btn mui-btn-danger" style="padding: 5px;">
+		                                单 身	
+		        </button>
+		        <button id="people_double"  onclick="mysingleOrdouble(this.id);" type="button" class="mui-btn mui-btn-danger mui-btn-outlined" style="padding: 5px;">
+		                             非单身	
+		        </button>
+		       </span>
+		     </div>
+			 <!--性别/单、非单end--->
+			 
+			<!-- <div style="border-top:0 none;border-left:0 none;border-right:0 none;border-bottom:1px solid #ccc; height: 45px; margin-top: 10px;">			       
+		       		<span class="mui-icon mui-icon-person" style="float: left; width: 30px;margin-top: 10px; margin-left: 20px;"></span>		       		 
+		       		<input id="peoplename" value="" placeholder="请输入昵称" 
+		       		style="background-color:#f0f0f0;border:0 none;margin-top: 10px;margin-left: 20px;"/>  
+		     </div>-->
+		     
+		     
+		     <div style="border-top:0 none;border-left:0 none;border-right:0 none;border-bottom:1px solid #ccc; height: 45px; margin-top: 6%;">			       
+		       		<span class="mui-icon mui-icon-person" style="float: left; width: 30px;margin-top: 10px; margin-left: 20px;"></span>	
+		       		<input id='peoplename' type="text" placeholder="请输入昵称"  style=" font-size: 16px; border:0 none;width:70%; height:30px;background-color:#f0f0f0;margin-top: 10px;margin-left: 8px;">
+		     </div>
+		 
+	 <!--选择生日--->
+     <div style="border-top:0 none;border-left:0 none;border-right:0 none;border-bottom:1px solid #ccc; height: 40px; margin-top: 3px;">	
+      
+      <span class="mui-icon mui-icon-list" style="float: left; width: 30px;margin-top: 10px; margin-left: 20px;"></span>  
+       	<button  type="button" class="mui-btn mui-icon mui-icon-arrowright mui-right" style="background-color:#f0f0f0;color:darkgrey; text-align:left; font-size:16px ; 
+       		margin-left: 10px; width:250px ;border:0 none; margin-top: 5px;" 	id='demo4' data-options='{"type":"date"}'>请选择生日       </button>
+      </div>
+	 <!--选择生日end--->	
+	 
+	 <!--选择城市--->
+	  <div style="border-top:0 none;border-left:0 none;border-right:0 none;border-bottom:1px solid #ccc; height: 40px; margin-top: 3px;">	
+		<span class="mui-icon mui-icon-map" style="float: left; width: 30px;margin-top: 10px; margin-left: 20px;"></span>  
+		 <button  type="button" class="mui-btn mui-icon mui-icon-arrowright mui-right" style="background-color:#f0f0f0;color:darkgrey; text-align:left; font-size:16px ; 
+		  margin-left: 10px; width:250px ;border:0 none; margin-top: 5px;" id='showCityPicker3' >请选择城市      </button>
+	 </div>
+	 <!--选择城市end--->
+	 
+	 <!--选择职业--->
+	 <div style="border-top:0 none;border-left:0 none;border-right:0 none;border-bottom:1px solid #ccc; height: 40px; margin-top: 3px;">	
+		<span class="mui-icon mui-icon-compose" style="float: left; width: 30px;margin-top: 10px; margin-left: 20px;"></span>  
+		 <a  class="mui-btn mui-icon mui-icon-arrowright mui-right" style="background-color:#f0f0f0;color:darkgrey; text-align:left; font-size:16px ; 
+		    margin-left: 10px; width:250px ;border:0 none; margin-top: 5px;" id='myjob' >	请选择职业 </a>		        
+	</div>
+	<!--选择职业end-->
+		      
+			 
+	</div>
+	    <span id="output" style="visibility: hidden;" style="padding: 0px; margin: 0px; width: 0px; height: 0px;">相册</span>
+		 <div style="text-align:center;">
+		 <button id="registerid" type="button" class="mui-btn mui-btn-danger mui-btn-outlined" 
+		 	style="margin: 0 auto; width: 80px;">
+					下一步
+		</button>  
+		</div>
+	</body>
+
+
+<!--标准mui.css-->
+		<link rel="stylesheet" type="text/css" href="./css/mui.min.css">
+	    <!--plus 相册 【头像】-->
+		<script type="text/javascript" src="./js/common.js"></script>
+	
+	    <!--plus 相册 【头像样式】-->
+		<style>
+			.oa-contact-avatar img {
+				border-radius: 90%;
+			}
+		</style>
+		 <!--选择出生日期 年月日-->
+	    <link rel="stylesheet" type="text/css" href="./css/mui.picker.min.css" />
+	
+<!--生日脚本-->
+<script type="text/javascript" src="./js/mui.min.js"></script>
+<script src="./js/mui.picker.min2.js"></script>
+<!--<script src="js/mui.picker.min.js"></script>-->
+	
+<!--城市脚本-->
+<script src="./js/city.data-3.js" type="text/javascript" charset="utf-8"></script>
+
+<script type="text/javascript">			
+//【相册打开选择头像】
+function galleryImg() {	
+	//outSet("从相册中选择图片:"); // 从相册中选择图片
+    plus.gallery.pick( function(path){    	
+    	outLine(path);
+        showImg( path );
+        //createItem(path);
+    }, function ( e ) {
+    	outSet( "取消选择图片" );
+    }, {filter:"image"} );
+}
+
+//展示头像
+function showImg( url ){
+	// 兼容以“file:”开头的情况
+	if(0!=url.indexOf("file://")){
+		url="file://"+url;
+	}
+	/*var _body_ = document.body;
+	var _div_ = document.createElement("div");
+	_div_.style.top="0px";
+	_div_.style.left="0px";
+	_div_.style.height="100%";
+	_div_.style.width="100%";
+	_div_.style.zIndex="99999";
+	_div_.style.position="fixed";
+	_div_.style.background="#ffffff";
+	_div_.id="imgShow";
+	_div_.onclick=closeImg;
+	var _img_=document.createElement("img");
+	_img_.src=url;
+	_img_.style.width="100%";
+	_body_.appendChild(_div_);
+	_div_.appendChild(_img_);*/	
+	document.getElementById("myimg").src=url;	
+}
+
+//【性别、单、非单】
+function mysex(sexid)
+{
+	if(sexid=="sexnan")
+	{
+		document.getElementById("sexnv").setAttribute("class","mui-btn mui-btn-danger mui-btn-outlined");
+		document.getElementById(sexid).setAttribute("class","mui-btn mui-btn-danger");
+	}
+	if(sexid=="sexnv")
+	{
+		document.getElementById("sexnan").setAttribute("class","mui-btn mui-btn-danger mui-btn-outlined");
+		document.getElementById(sexid).setAttribute("class","mui-btn mui-btn-danger");
+	}
+	
+}
+
+function mysingleOrdouble(peopleid)
+{
+	if(peopleid=="people_single")
+	{
+		document.getElementById("people_double").setAttribute("class","mui-btn mui-btn-danger mui-btn-outlined");
+		document.getElementById(peopleid).setAttribute("class","mui-btn mui-btn-danger");
+	}
+	if(peopleid=="people_double")
+	{
+		document.getElementById("people_single").setAttribute("class","mui-btn mui-btn-danger mui-btn-outlined");
+		document.getElementById(peopleid).setAttribute("class","mui-btn mui-btn-danger ");
+	}
+	
+}
+
+
+(function($, doc) {
+				$.init(
+					{
+					/* preloadPages:[{
+					   id:'register-joblist.html',
+					   url:'register-joblist.html'          
+					 }]*/
+				}
+				);
+				
+				$.ready(function() {
+				});
+				
+				//【请选择生日】
+				/*var result = $('#result')[0];*/
+				/*var btns = $('.btn');*/
+				var btns = $('#demo4');
+				btns.each(function(i, btn) {
+					btn.addEventListener('tap', function() {						
+						var optionsJson = this.getAttribute('data-options') || '{}';
+						var options = JSON.parse(optionsJson);
+						var id = this.getAttribute('id');
+						/*
+						 * 首次显示时实例化组件
+						 * 示例为了简洁，将 options 放在了按钮的 dom 上
+						 * 也可以直接通过代码声明 optinos 用于实例化 DtPicker
+						 */
+						var picker = new $.DtPicker(options);
+						picker.show(function(rs) {
+							btn.innerText= rs.text;
+							picker.dispose();
+						});
+					}, false);
+				});			
+				
+				//【请选择城市】
+					var cityPicker3 = new $.PopPicker({
+						layer: 3
+					});
+					cityPicker3.setData(cityData3);
+					var showCityPickerButton = doc.getElementById('showCityPicker3');
+					/*var cityResult3 = doc.getElementById('cityResult3');*/
+					showCityPickerButton.addEventListener('tap', function(event) {
+						cityPicker3.show(function(items) {
+							//cityResult3.innerText = "" + (items[0] || {}).text + " " + (items[1] || {}).text + " " + (items[2] || {}).text;
+							showCityPicker3.innerText = "" + (items[0] || {}).text + " " + (items[1] || {}).text + " " + (items[2] || {}).text;
+							//返回 false 可以阻止选择框的关闭
+							//return false;
+						});
+					}, false);
+					
+					
+		var detailPage = null;
+		//添加列表项的点击事件
+		mui('.mui-content').on('tap','a', function(e) {
+		//打开详情页面          
+			 mui.openWindow({
+			   id:'register-joblist.html',
+			   url:'register-joblist.html'
+			 });
+		});			
+		
+		//添加列表项的点击事件
+		var registerid=$('#registerid');
+		registerid.each(function(i, btn) {
+			btn.addEventListener('tap', function() {
+				
+	    var sex="男";
+		var singleOrDouble="单身";
+		var peoplename="";
+		document.getElementById("sexnan").className=="mui-btn mui-btn-danger"?sex="男":sex="女";
+		document.getElementById("people_single").className=="mui-btn mui-btn-danger"?singleOrDouble="单身":singleOrDouble="非单身";
+		
+		var storage = window.localStorage;
+		storage.setItem("people_sex",sex);
+		storage.setItem("people_singleOrDouble",singleOrDouble);
+		storage.setItem("people_name",document.getElementById("peoplename").value);
+		storage.setItem("people_birthday",document.getElementById("demo4").innerText);
+		storage.setItem("people_city",document.getElementById("showCityPicker3").innerText);
+		storage.setItem("people_job",document.getElementById("myjob").innerText);
+		storage.setItem("myimg",document.getElementById("myimg").src);
+		
+				 mui.openWindow({
+				   id:'register-account.html',
+				   url:'register-account.html'
+				 });
+				 
+			});
+		});
+		
+				
+   })(mui, document);
+			
+			//添加newId自定义事件监听
+window.addEventListener('register-job',function(event){
+  //获得事件参数
+  var jobname = event.detail.jobname;
+  //根据id向服务器请求新闻详情
+  document.getElementById("myjob").innerText=jobname;
+  // var showCityPickerButton = document.getElementById('#myjob')=;
+});
+		
+</script>
+	
+
+</html>

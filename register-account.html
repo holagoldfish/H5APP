@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+  </head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">账户设置</h1>
+		</header>
+		
+		<div class="mui-content">	
+			<!--头像--->
+			<div  style="vertical-align: middle; margin-top: 20px;  margin-left: 20px;padding:0px ;">
+				<h5>设置与帐号绑定的手机号码和登录密码</h5>
+			</div>				
+			<!--头像end--->
+		 
+      <div style="border-top:0 none;border-left:0 none;border-right:0 none;border-bottom:1px solid #ccc;
+      	 height: 45px; margin-top: 20px;">			       
+		     <span class="mui-icon mui-icon-person" style="float: left; margin-top: 10px; margin-left: 20px;"></span>		       		 
+		       <span style="float: left; margin-right: 35px;  ">
+		       <input id='account' type="number" style="background-color:#f0f0f0;border:0 none;" 
+		       			class="mui-input-clear mui-input" placeholder="设置用于登录的手机号">
+		       </span>
+	 </div>
+	 
+	 <!--密码--->
+	 <div style="border-top:0 none;border-left:0 none;border-right:0 none;border-bottom:1px solid #ccc; 
+	 	height: 50px; margin-top: 3px;">	
+		<span class="mui-icon mui-icon-compose" style="float: left; margin-top: 10px; margin-left: 20px;"></span>		
+       	<span  style="float: left; margin-right: 35px; " >
+       		<div class="mui-input-row">
+       			<input id="pwd" type="password" placeholder="请输入密码" class="mui-input-password"
+       				 style="background-color:#f0f0f0;border:0 none;" >       			
+       		</div>
+		<span>
+	</div>
+	<!--密码end-->
+	
+	
+	<div style="text-align:center; margin-top: 20px;">
+		 <button id="registerid" type="button" class="mui-btn mui-btn-danger mui-btn-outlined" 
+		 	style="margin: 0 auto; width: 80px;">
+					下一步
+		</button>  
+	</div> 
+	</div>
+</body>
+
+
+<!--标准mui.css-->
+<link rel="stylesheet" type="text/css" href="./css/mui.min.css">
+<script type="text/javascript" src="./js/mui.min.js"></script>
+
+<script type="text/javascript">			
+//【相册打开选择头像】
+
+(function($, doc) {
+				$.init(
+					{
+					/* preloadPages:[{
+					   id:'register-joblist.html',
+					   url:'register-joblist.html'          
+					 }]*/
+				}
+				);
+				
+				$.ready(function() {
+				});
+					
+	//添加列表项的点击事件
+		var registerid=$('#registerid');
+		registerid.each(function(i, btn) {
+			btn.addEventListener('tap', function() {
+				var storage = window.localStorage;
+		        storage.setItem("people_phonenumber", document.getElementById("account").value);
+		        storage.setItem("people_pwd", document.getElementById("pwd").value);
+				 mui.openWindow({
+				   id:'register-phonenumber.html',
+				   url:'register-phonenumber.html'
+				 });
+			});
+		});
+				
+				
+   })(mui, document);
+			
+/*			//添加newId自定义事件监听
+window.addEventListener('register-job',function(event){
+	var storage = window.localStorage;
+	showImg(storage.getItem("myimg"));
+	mysex(storage.getItem("people-sex"));
+	mysingleOrdouble(storage.getItem("people_singleOrDouble"));
+	document.getElementById("peoplename").value=storage.getItem("people_name");
+	document.getElementById("demo4").innerText=storage.getItem("people_birthday");
+	document.getElementById("showCityPicker3").innerText=storage.getItem("people_city");	
+		
+  //获得事件参数
+  var jobname = event.detail.jobname;
+  //根据id向服务器请求详情
+  document.getElementById("myjob").innerText=jobname;
+  // var showCityPickerButton = document.getElementById('#myjob')=;
+});*/
+		
+</script>
+	
+
+</html>

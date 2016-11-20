@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+		<link rel="stylesheet" href="./css/mui.min.css">
+		<style>
+			html,
+			body {
+				background-color: #efeff4;
+			}
+			.mui-bar~.mui-content .mui-fullscreen {
+				top: 44px;
+				height: auto;
+			}
+			.mui-pull-top-tips {
+				position: absolute;
+				top: -20px;
+				left: 50%;
+				margin-left: -25px;
+				width: 40px;
+				height: 40px;
+				border-radius: 100%;
+				z-index: 1;
+			}
+			.mui-bar~.mui-pull-top-tips {
+				top: 24px;
+			}
+			.mui-pull-top-wrapper {
+				width: 42px;
+				height: 42px;
+				display: block;
+				text-align: center;
+				background-color: #efeff4;
+				border: 1px solid #ddd;
+				border-radius: 25px;
+				background-clip: padding-box;
+				box-shadow: 0 4px 10px #bbb;
+				overflow: hidden;
+			}
+			.mui-pull-top-tips.mui-transitioning {
+				-webkit-transition-duration: 200ms;
+				transition-duration: 200ms;
+			}
+			.mui-pull-top-tips .mui-pull-loading {
+				/*-webkit-backface-visibility: hidden;
+				-webkit-transition-duration: 400ms;
+				transition-duration: 400ms;*/
+				
+				margin: 0;
+			}
+			.mui-pull-top-wrapper .mui-icon,
+			.mui-pull-top-wrapper .mui-spinner {
+				margin-top: 7px;
+			}
+			.mui-pull-top-wrapper .mui-icon.mui-reverse {
+				/*-webkit-transform: rotate(180deg) translateZ(0);*/
+			}
+			.mui-pull-bottom-tips {
+				text-align: center;
+				background-color: #efeff4;
+				font-size: 15px;
+				line-height: 40px;
+				color: #777;
+			}
+			.mui-pull-top-canvas {
+				overflow: hidden;
+				background-color: #fafafa;
+				border-radius: 40px;
+				box-shadow: 0 4px 10px #bbb;
+				width: 40px;
+				height: 40px;
+				margin: 0 auto;
+			}
+			.mui-pull-top-canvas canvas {
+				width: 40px;
+			}
+			.mui-slider-indicator.mui-segmented-control {
+				background-color: #efeff4;
+			}
+		</style>
+	</head>
+
+	<body>
+		<!--<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">选项卡切换+下拉刷新</h1>
+		</header>-->
+		<div class="mui-content">
+			<div id="slider" class="mui-slider mui-fullscreen">
+				<!--<div id="sliderSegmentedControl" class="mui-scroll-wrapper mui-slider-indicator mui-segmented-control mui-segmented-control-inverted">
+					<div class="mui-scroll">
+						<a class="mui-control-item mui-active" href="#item1mobile">
+							自主活动
+						</a>
+						<a class="mui-control-item" href="#item2mobile">
+							赞助活动
+						</a>
+					</div>
+				</div>-->
+				
+			<!--	<div id="sliderSegmentedControl" class="mui-scroll-wrapper mui-slider-indicator mui-segmented-control mui-segmented-control-inverted">-->
+					<div id="sliderSegmentedControl" class="mui-scroll mui-segmented-control mui-segmented-control-negative">
+					<a class="mui-control-item mui-active" href="#item1mobile">
+				自主活动（8）
+			</a>
+					<a class="mui-control-item " href="#item2mobile" >
+				赞助活动（3）
+			</a>
+				<!--	<a class="mui-control-item" href="#item3">
+				全部公文
+			</a>-->
+				</div>
+				
+				<div class="mui-slider-group">
+					<div id="item1mobile" class="mui-slider-item mui-control-content mui-active">
+						<div id="scroll1" class="mui-scroll-wrapper">
+							<div id='scroll-div1' class="mui-scroll">
+								<ul id="ul1" class="mui-table-view">
+									<!--<li class="mui-table-view-cell">
+										第1个选项卡子项-1
+									</li>
+									<li class="mui-table-view-cell">
+										第1个选项卡子项-2
+									</li>
+									<li class="mui-table-view-cell">
+										第1个选项卡子项-3
+									</li>
+									<li class="mui-table-view-cell">
+										第1个选项卡子项-4
+									</li>
+									<li class="mui-table-view-cell">
+										第1个选项卡子项-5
+									</li>
+									<li class="mui-table-view-cell">
+										第1个选项卡子项-6
+									</li>
+									<li class="mui-table-view-cell">
+										第1个选项卡子项-7
+									</li>
+									<li class="mui-table-view-cell">
+										第1个选项卡子项-8
+									</li>
+									<li class="mui-table-view-cell">
+										第1个选项卡子项-9
+									</li>
+									<li class="mui-table-view-cell">
+										第1个选项卡子项-10
+									</li>
+									<li class="mui-table-view-cell">
+										第1个选项卡子项-11
+									</li>
+									<li class="mui-table-view-cell">
+										第1个选项卡子项-12
+									</li>
+									<li class="mui-table-view-cell">
+										第1个选项卡子项-13
+									</li>
+									<li class="mui-table-view-cell">
+										第1个选项卡子项-14
+									</li>
+									<li class="mui-table-view-cell">
+										第1个选项卡子项-15
+									</li>
+									<li class="mui-table-view-cell">
+										第1个选项卡子项-16
+									</li>
+									<li class="mui-table-view-cell">
+										第1个选项卡子项-17
+									</li>
+									<li class="mui-table-view-cell">
+										第1个选项卡子项-18
+									</li>
+									<li class="mui-table-view-cell">
+										第1个选项卡子项-19
+									</li>
+									<li class="mui-table-view-cell">
+										第1个选项卡子项-20
+									</li>-->
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div id="item2mobile" class="mui-slider-item mui-control-content">
+						<div class="mui-scroll-wrapper">
+							<div id='scroll-div2'  class="mui-scroll">
+								<ul id="ul2" class="mui-table-view">
+									<!--<li class="mui-table-view-cell">
+										第2个选项卡子项-1
+									</li>
+									<li class="mui-table-view-cell">
+										第2个选项卡子项-2
+									</li>
+									<li class="mui-table-view-cell">
+										第2个选项卡子项-3
+									</li>
+									<li class="mui-table-view-cell">
+										第2个选项卡子项-4
+									</li>
+									<li class="mui-table-view-cell">
+										第2个选项卡子项-5
+									</li>
+									<li class="mui-table-view-cell">
+										第2个选项卡子项-6
+									</li>
+									<li class="mui-table-view-cell">
+										第2个选项卡子项-7
+									</li>
+									<li class="mui-table-view-cell">
+										第2个选项卡子项-8
+									</li>
+									<li class="mui-table-view-cell">
+										第2个选项卡子项-9
+									</li>
+									<li class="mui-table-view-cell">
+										第2个选项卡子项-10
+									</li>
+									<li class="mui-table-view-cell">
+										第2个选项卡子项-11
+									</li>
+									<li class="mui-table-view-cell">
+										第2个选项卡子项-12
+									</li>
+									<li class="mui-table-view-cell">
+										第2个选项卡子项-13
+									</li>
+									<li class="mui-table-view-cell">
+										第2个选项卡子项-14
+									</li>
+									<li class="mui-table-view-cell">
+										第2个选项卡子项-15
+									</li>
+									<li class="mui-table-view-cell">
+										第2个选项卡子项-16
+									</li>
+									<li class="mui-table-view-cell">
+										第2个选项卡子项-17
+									</li>
+									<li class="mui-table-view-cell">
+										第2个选项卡子项-18
+									</li>
+									<li class="mui-table-view-cell">
+										第2个选项卡子项-19
+									</li>
+									<li class="mui-table-view-cell">
+										第2个选项卡子项-20
+									</li>-->
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div> 
+			</div>
+		</div>
+		<script src="./js/mui.min.js"></script>
+		<script src="./js/mui.pullToRefresh.js"></script>
+		<script src="./js/mui.pullToRefresh.material.js"></script>
+		<script src="./js/hyappCommon.js"></script>
+		<script>
+			mui.init(); 
+			(function($) {
+				//阻尼系数
+				var deceleration = mui.os.ios?0.003:0.0009;
+				$('.mui-scroll-wrapper').scroll({
+					bounce: false,
+					indicators: true, //是否显示滚动条
+					deceleration:deceleration
+				});
+				
+				var mm={};
+				var x=0;
+				
+				$.ready(function() {
+					
+					//循环初始化所有下拉刷新，上拉加载。
+					$.each(document.querySelectorAll('.mui-slider-group .mui-scroll'), function(index, pullRefreshEl) {
+						//alert(typeof pullRefreshEl);
+						if(x=0)
+						{mm=pullRefreshEl;}
+						x++;
+						$(pullRefreshEl).pullToRefresh({
+							/*down: {
+								callback: function() {
+									var self = this;
+									setTimeout(function() {
+										var ul = self.element.querySelector('.mui-table-view');
+										ul.insertBefore(createFragment(ul, index, 10, true), ul.firstChild);
+										self.endPullDownToRefresh();
+									}, 1000);
+								}
+							},*/
+							up: {
+								contentrefresh : "正在加载...",//可选，正在加载状态时，上拉加载控件上显示的标题内容
+				                contentnomore:'没有更多数据了',//可选，请求完毕若没有更多数据时显示的提醒内容；
+								callback: function() {
+									var self = this;
+									setTimeout(function() {
+										var ul = self.element.querySelector('.mui-table-view');
+										//ul.appendChild(createFragment(ul, index, 5));
+										ul.appendChild(createFragment(ul, index));
+										self.endPullUpToRefresh();
+									}, 1000);
+								}
+							}
+						});
+						 
+					});
+					
+					
+	
+	function cutString(str, len) {
+    //length属性读出来的汉字长度为1
+    if(str.length*2 <= len) {
+        return str;
+    }
+    var strlen = 0;
+    var s = "";
+    for(var i = 0;i < str.length; i++) {
+        s = s + str.charAt(i);
+        if (str.charCodeAt(i) > 128) {
+            strlen = strlen + 2;
+            if(strlen >= len){
+                return s.substring(0,s.length-1) + "...";
+            }
+        } else {
+            strlen = strlen + 1;
+            if(strlen >= len){
+                return s.substring(0,s.length-2) + "...";
+            }
+        }
+    }
+    return s;
+}
+
+					
+	
+			var getActivityByTypeLimit=function(index,start,end)
+            {
+            	var obj={};
+            	console.log("index "+index);
+            	var typeNum=index+1;
+            	 var func_url=ServerUrl.IP+"/tan.maven.springmvc Maven Webapp/activity.do?method=getActivityByType"; 
+                 mui.ajax(func_url,{
+				        	data:{					
+								/*phonenumber:accountBox.value,*/
+								activityType:typeNum,
+								start:start,
+								end:end
+							},
+							//dataType:'jsonp',//服务器返回json格式数据
+							dataType:'json',
+							type:'post',//HTTP请求类型
+							//timeout:10000,//超时时间设置为10秒；
+							async:false,
+							jsonp:"jsoncallback",
+							success:function(data){ 
+								obj=data;
+							},
+							error:function(xhr,type,errorThrown){								//异常处理；
+								console.log(xhr.Message+"  "+type+" "+errorThrown);
+							}
+						});
+            	 return obj;
+            }	
+					
+					var createFragment = function(ul, index, count, reverse) {
+						var length = ul.querySelectorAll('li').length;
+						var fragment = document.createDocumentFragment();
+						var li;
+						//var start=0,end=5;
+						var data={};
+						if(index==0)
+						{
+							data=getActivityByTypeLimit(index,item1_start,item1_end);
+							item1_start=item1_start+data.activityList.length;	
+						}
+						else
+						{
+							data=getActivityByTypeLimit(index,item2_start,item2_end);
+							item2_start=item2_start+data.activityList.length;	
+						}
+						
+					
+						for (var i =0; i <data.activityList.length; i++) {
+									var theme=data.activityList[i].theme;
+									var content=data.activityList[i].content;
+									var publisherId=data.activityList[i].publisherUserId;
+									var li = document.createElement('li');
+									li.className = 'mui-table-view-cell';
+									li.id=data.activityList[i].id;									
+									li.innerHTML='<div id="listdiv'+li+'" class="mui-slider-cell"><div class="oa-contact-cell mui-table"><div class="oa-contact-avatar mui-table-cell"><img id="heading'+li.id+'" style="width: 60px; height: 60px;" src="images/yuantiao.jpg" /></div><div class="oa-contact-content mui-table-cell"><div class="mui-clearfix"><h4 id="theme'+li.id+'" class="oa-contact-name">'+data.activityList[i].theme+'</h4></div><p id="content'+li.id+'" class="oa-contact-email mui-h6">'+cutString(data.activityList[i].content,40)+'</p></div></div></div>';
+									
+									li.addEventListener('tap', function() {	
+										var storage = window.localStorage;
+								        var isLogin=storage.getItem("Loginpeople_isLogin");
+								        
+								        isLogin=1;
+								        if(isLogin!=1)
+								        {
+								        	alert("请先登录");
+								        	return;
+								        }
+								        else
+								        {
+										
+										var myliid = this.getAttribute('id');												
+										storage.setItem("activityList_checked_publisherUserId",publisherId);										
+										storage.setItem("activityList_checked_theme",theme);
+										storage.setItem("activityList_checked_content",content);
+										
+										 mui.openWindow({
+										   id:'activity-info.html',
+										   url:'activity-info.html'
+										 });
+										 
+										 }
+									});
+									
+									fragment.appendChild(li);
+						}
+						return fragment;
+						
+						/*for (var i = 0; i < count; i++) {
+							li = document.createElement('li');
+							li.className = 'mui-table-view-cell';
+							li.innerHTML = '第' + (index + 1) + '个选项卡子项-' + (length + (reverse ? (count - i) : (i + 1)));
+							fragment.appendChild(li);
+						}
+						return fragment;*/
+					};
+					
+			function getAllActivityLimit(start,end)
+			{
+				 var func_url=ServerUrl.IP+"/tan.maven.springmvc Maven Webapp/activity.do?method=getActivityByType"; 
+                 mui.ajax(func_url,{
+				        	data:{					
+								/*phonenumber:accountBox.value,*/
+								activityType:1,
+								start:start,
+								end:end
+							},
+							//dataType:'jsonp',//服务器返回json格式数据
+							dataType:'json',
+							type:'post',//HTTP请求类型
+							//timeout:10000,//超时时间设置为10秒；
+							jsonp:"jsoncallback",
+							success:function(data){ 
+								
+								var table = document.body.querySelector('.mui-table-view');
+								var cells = document.body.querySelectorAll('.mui-table-view-cell');
+								
+								var storage = window.localStorage;
+								storage.setItem("activityList_data",data);
+								
+								for (var i =0; i <data.activityList.length; i++) {
+									var theme=data.activityList[i].theme;
+									var content=data.activityList[i].content;
+									console.log(theme);
+									
+									/*var singleOrDouble=data.userslist[i].userInfo.singleOrdouble;
+									var birthday=data.userslist[i].userInfo.birthdayStr;
+									var heading=data.userslist[i].userInfo.heading;*/
+									
+									var li = document.createElement('li');
+									li.className = 'mui-table-view-cell';
+									li.id=data.activityList[i].id;
+									//li.value=data.userslist[i];									
+									/*var a='<div id="listdiv'+li+'" class="mui-slider-cell"><div class="oa-contact-cell mui-table"><div class="oa-contact-avatar mui-table-cell"><img id="heading'+li.id+'" style="width: 60px; height: 60px;" src="'+data.userslist[i].userInfo.heading+'" /></div><div class="oa-contact-content mui-table-cell"><div class="mui-clearfix"><h4 id="nickname'+li.id+'" class="oa-contact-name">'+data.userslist[i].userInfo.nickname+'</h4><span id="sex'+li.id+'" class="oa-contact-position mui-h6">'+sex+'</span>&nbsp;<span id="singleOrDouble'+li.id+'" class="oa-contact-position mui-h6">'+singleOrDouble+'</span>&nbsp;<span id="job'+li.id+'" class="oa-contact-position mui-h6">'+job+'</span></div><p class="oa-contact-email mui-h6">个人宣言aaaa：yewenjie@sina.com</p></div></div></div><div id="birthday'+li.id+'" style="display: none;">'+birthday+'</div>';
+									li.innerHTML=a;*/
+									
+									var a='<div id="listdiv'+li+'" class="mui-slider-cell"><div class="oa-contact-cell mui-table"><div class="oa-contact-avatar mui-table-cell"><img id="heading'+li.id+'" style="width: 60px; height: 60px;" src="images/yuantiao.jpg" /></div><div class="oa-contact-content mui-table-cell"><div class="mui-clearfix"><h4 id="theme'+li.id+'" class="oa-contact-name">'+data.activityList[i].theme+'</h4></div><p id="content'+li.id+'" class="oa-contact-email mui-h6">'+cutString(data.activityList[i].content,40)+'</p></div></div></div>';
+									li.innerHTML=a;
+									li.addEventListener('tap', function(li) {	
+										var storage = window.localStorage;
+								        var isLogin=storage.getItem("Loginpeople_isLogin");
+								        if(isLogin!=1)
+								        {
+								        	alert("请先登录");
+								        	return;
+								        }
+								        else
+								        {										
+										var myliid = this.getAttribute('id');
+										console.log(" document.getElementById(theme).innerText "+document.getElementById("theme"+myliid).innerText);
+										storage.setItem("activityList_checked_user_id",myliid);										
+										storage.setItem("activityList_checked_theme",document.getElementById("theme"+myliid).innerText);
+										storage.setItem("activityList_checked_content",document.getElementById("content"+myliid).innerText);
+										
+										 mui.openWindow({
+										   id:'list-activityinfo.html',
+										   url:'list-activityinfo.html'
+										 });										 
+										 }
+									});
+									
+									//下拉刷新，新纪录插到最前面；
+									table.insertBefore(li, table.firstChild);
+								}
+								mui('#pullrefresh').pullRefresh().endPulldownToRefresh(); //refresh completed
+	                           
+							},
+							error:function(xhr,type,errorThrown){//异常处理；
+								console.log(xhr.Message+"  "+type+" "+errorThrown);
+							}
+						});
+			            
+			}
+			
+			
+			var item1_start=0,item2_start=0;
+			var item1_end=2,item2_end=2;			
+			setTimeout(function(){
+				var ul1 =document.getElementById('ul1');
+						ul1.appendChild(createFragment(ul1, 0, item1_end));	 
+			    var ul2 =document.getElementById('ul2');
+						ul2.appendChild(createFragment(ul2, 1, item2_end));	
+			},5000);
+					/*var createFragment = function(ul, index, count, reverse) {
+						var length = ul.querySelectorAll('li').length;
+						var fragment = document.createDocumentFragment();
+						var li;
+						for (var i = 0; i < count; i++) {
+							li = document.createElement('li');
+							li.className = 'mui-table-view-cell';
+							li.innerHTML = '第' + (index + 1) + '个选项卡子项-' + (length + (reverse ? (count - i) : (i + 1)));
+							fragment.appendChild(li);
+						}
+						return fragment;
+					};*/
+					
+					
+				});
+			})(mui);
+		</script>
+	</body>
+
+</html>

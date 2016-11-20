@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html>
+<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<!---解决跨域--><meta http-equiv="Access-Control-Allow-Origin" content="">
+<meta http-equiv="content-security-policy"> 
+	    <meta http-equiv="Access-Control-Allow-Origin" content="">
+        <meta http-equiv="content-security-policy">
+</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">账户设置</h1>
+		</header>
+		
+<div class="mui-content">			 
+		 
+      <div style="border-top:0 none;border-left:0 none;border-right:0 none;border-bottom:1px solid #ccc; 
+      	height: 42px; margin-top: 10px;">			       
+		     <span 
+		     	style="float: left; margin-top: 10px; margin-left: 12px;width:16%;">
+		     	验证码
+		     </span>		       		 
+		       <span style="float: left; width:40%;">
+		       <input id="validateCode" type="number" style="background-color:#f0f0f0;border:0 none;" 
+		       			class="mui-input-clear mui-input" placeholder="请输入验证码"/>		        
+		       </span>
+		       <span style="float:right;margin-right: 5px;">
+		       <input id="btnSendCode" type="button" value="发送验证码" />
+		       </span>
+	 </div>
+	 
+	 <br>
+		<div style="text-align:center;">
+			 <button id="registerALL" type="button" class="mui-btn mui-btn-danger mui-btn-outlined" 
+			 	style="margin: 0 auto; width: 80px; ">
+						完  成
+			</button>  
+			<div id="checkValidateCode" style=" display:none;color: red; font-size: 13px; margin-top: 10px; ">
+		         验证码不正确
+		     </div>
+		</div>	
+	</div>
+</body>
+
+
+<link rel="stylesheet" type="text/css" href="./css/mui.min.css">
+<script type="text/javascript" src="./js/mui.min.js"></script>
+<script type="text/javascript" src="./js/jquery.js"></script>
+<script src="js/hyappCommon.js"></script>
+<script type="text/javascript">	
+var countdown=60; 
+  function settime(val) {   	
+  	if(val.value=="发送验证码")
+  	{
+  	    var Num=""; 
+		for(var i=0;i<6;i++) 
+		{ 
+		Num+=Math.floor(Math.random()*10); 
+		} 					
+		document.getElementById("validateCode").value=Num;
+		var storage = window.localStorage;
+		storage.setItem("validateCode",Num);
+	}
+  	
+    if (countdown == 0) { 
+      val.removeAttribute("disabled");    
+      val.value="发送验证码"; 
+      countdown = 60;    
+      document.getElementById("checkValidateCode").style.display="none";
+      return;
+    } else { 
+         val.setAttribute("disabled", true); 
+         val.value= countdown + "s"; 
+         countdown--; 
+    } 
+      setTimeout(function() { 
+         settime(val);
+      },1000);
+} 
+
+/*var InterValObj; //timer变量，控制时间
+var count = 5; //间隔函数，1秒执行
+var curCount;//当前剩余秒数
+
+function sendMessage() {
+  　curCount = count;
+　　//设置button效果，开始计时
+     $("#btnSendCode").attr("disabled", "true");
+     $("#btnSendCode").val("请在" + curCount + "秒内输入验证码");
+     InterValObj = window.setInterval(SetRemainTime, 1000); //启动计时器，1秒执行一次
+　　  //向后台发送处理数据
+    /* $.ajax({
+     　　type: "POST", //用POST方式传输
+     　　dataType: "text", //数据格式:JSON
+     　　url: 'Login.ashx', //目标地址
+    　　 data: "dealType=" + dealType +"&uid=" + uid + "&code=" + code,
+    　　 error: function (XMLHttpRequest, textStatus, errorThrown) { },
+     　　success: function (msg){ }
+     });
+}
+*/
+
+/*//timer处理函数
+function SetRemainTime() {
+            if (curCount == 0) {                
+                window.clearInterval(InterValObj);//停止计时器
+                $("#btnSendCode").removeAttr("disabled");//启用按钮
+                $("#btnSendCode").val("重新发送验证码");
+            }
+            else {
+                curCount--;
+                $("#btnSendCode").val("请在" + curCount + "秒内输入验证码");
+            }
+        }*/
+       
+(function($, doc) {
+				$.init(
+					{
+					/* preloadPages:[{
+					   id:'register-joblist.html',
+					   url:'register-joblist.html'          
+					 }]*/				  
+				    }
+				);
+				
+				$.ready(function() {
+				});				
+				
+	  
+					
+	//添加列表项的点击事件
+		var btnSendCode=$('#btnSendCode');
+		btnSendCode.each(function(i, btn) {
+			btn.addEventListener('tap', function() {
+	          settime(btn);
+			});
+		});
+		
+		var registerALL=$('#registerALL');
+		registerALL.each(function(i, btn) {
+			btn.addEventListener('tap', function() {
+	            var storage = window.localStorage;
+	            var validateCode=storage.getItem("validateCode");	            
+	            if(validateCode!==document.getElementById("validateCode").value)
+	            {
+	            	document.getElementById("checkValidateCode").style.display="block";
+	            }
+	            else
+	            {
+	            	document.getElementById("checkValidateCode").style.display="none";
+	            }
+	     
+				
+				/*var wvs=plus.webview.all();
+					for(var i=0;i<wvs.length;i++){
+						//console.log("webview"+i+": "+wvs[i].getURL()+" "+wvs[i].id);
+						var wvsid=wvs[i].id;
+						if(wvsid=="register8-3-ok.html" || wvsid=="register-account.html" || wvsid=="login3.html")
+						{
+							plus.webview.hide(wvsid);
+						}
+						else if(wvsid=="register-phonenumber.html")
+						{
+							setTimeout(function() {
+				            plus.webview.hide(wvsid)},4000);
+				          //plus.webview.hide(wvsid);
+						}
+						else
+						{
+							plus.webview.close(wvsid);
+						}
+					}*/
+				
+				tijiao();
+					
+				//plus.webview.show(wvs[i].id); 	
+				/*var mainPage = $.preload({
+						"id": 'index-ok',
+						"url": 'index-ok.html'
+					});
+				$.fire(mainPage, 'show', null);*/
+				//plus.webview.show();
+			});
+		});
+		
+   })(mui, document);
+</script>
+ <script type="text/javascript" charset="utf-8"> 
+ 
+ // 添加文件
+var f1=null;
+function appendFile(path){
+
+  var img = new Image();
+        img.src = path;        // 传过来的图片路径在这里用。
+        img.onload = function () {
+            var that = this;
+            //生成比例 
+            //var w = that.width,
+              //  h = that.height,
+                //scale = w / h; 
+                //w = 60 || w;              //480  你想压缩到多大，改这里
+                //h = w / scale;
+               
+               var w = that.width/20,
+                   h = that.height/20;         
+                   alert("图片压缩"+w+" "+h);
+            //生成canvas
+            var canvas = document.createElement('canvas');
+            var ctx = canvas.getContext('2d');
+            $(canvas).attr({width : w, height : h});
+            ctx.drawImage(that, 0, 0, w, h);
+            var base64 = canvas.toDataURL('image/jpg', 1 || 1 );   
+            //1最清晰，越低越模糊。有一点不清楚这里明明设置的是jpeg。弹出 base64 开头的一段 data：image/png;却是png。哎开心就好，开心就好
+           f1 =base64;   // 把base64数据丢过去，上传要用。
+          // pic.src = f1;                                 //这里丢到img 的 src 里面就能看到效果了
+    }
+      
+}
+ 
+  function tijiao()
+     {
+     	    var storage = window.localStorage;
+   	        var sex=storage.getItem("people_sex");
+			var singleOrDouble=storage.getItem("people_singleOrDouble");
+			var nickname=storage.getItem("people_name");
+			var birthday=storage.getItem("people_birthday");
+			var city=storage.getItem("people_city");
+			var job=storage.getItem("people_job");
+			var path=storage.getItem("myimg");
+			var phonenumber=storage.getItem("people_phonenumber");
+		    var pwd=storage.getItem("people_pwd");
+		        
+	    var img = new Image();
+        img.src = path;        // 传过来的图片路径在这里用。
+        img.onload = function () {
+            var that = this;
+            //生成比例 
+            //var w = that.width,
+              //  h = that.height,
+                //scale = w / h; 
+                //w = 60 || w;              //480  你想压缩到多大，改这里
+                //h = w / scale;
+               
+               var w = that.width/20,
+                   h = that.height/20; 
+                   console.log("图片压缩测试："+w+"  "+h);
+            //生成canvas
+            var canvas = document.createElement('canvas');
+            var ctx = canvas.getContext('2d');
+            $(canvas).attr({width : w, height : h});
+            ctx.drawImage(that, 0, 0, w, h);
+            var base64 = canvas.toDataURL('image/jpg', 1 || 0.9);    
+            //1最清晰，越低越模糊。有一点不清楚这里明明设置的是jpeg。弹出 base64 开头的一段 data：image/png;却是png。哎开心就好，开心就好
+           //f1 =base64;   // 把base64数据丢过去，上传要用。
+            //var pic = document.getElementById("x");    
+          // pic.src = f1;                                 //这里丢到img 的 src 里面就能看到效果了
+             //var m = window.localStorage;
+            // m.setItem("imgheadbase64",base64);
+            
+         //var func_url="http://192.168.21.106:8081/tan.maven.springmvc Maven Webapp/users.do?method=add"; 
+	      var func_url=ServerUrl.IP+"/tan.maven.springmvc Maven Webapp/users.do?method=add"; 	      
+	        mui.ajax(func_url,{
+	        	data:{					
+					headimg:base64,
+					nickname:encodeURI(nickname),
+					sex:encodeURI(sex),
+					singleOrDouble:encodeURI(singleOrDouble),
+					birthday:birthday,
+					city:encodeURI(city),
+					job:encodeURI(job),
+					phonenumber:phonenumber,
+					pwd:encodeURI(pwd)
+				},
+				dataType:'jsonp',//服务器返回json格式数据
+				type:'post',//HTTP请求类型
+				//timeout:10000,//超时时间设置为10秒；
+				jsonp:"jsoncallback",
+				success:function(data){
+					//服务器返回响应，根据响应结果，分析是否登录成功；
+					//alert("返回："+data);
+					console.log("注册完成后，用户id: "+data);
+					storage.setItem("Loginpeople_isLogin","1");				
+					storage.setItem("people_loginUserid",data);
+								
+					//plus.webview.open("index.html","index.html");【TODO】					
+					plus.webview.getWebviewById("index-menu").reload();
+					plus.webview.getWebviewById("register-phonenumber.html").close();
+					plus.webview.getWebviewById("register-account.html").close();
+					plus.webview.getWebviewById("register-joblist.html").close();
+					plus.webview.getWebviewById("login.html").close();
+					plus.webview.getWebviewById("register.html").close();
+					
+					/*var wvs=plus.webview.all();
+					for(var i=0;i<wvs.length;i++){
+						//console.log("webview"+i+": "+wvs[i].getURL()+" "+wvs[i].id);
+						/*if(wvs[i].id=="HBuilder")
+						{
+							plus.webview.show(wvs[i].id); 
+						}*/
+						/*
+						else
+						{
+							plus.webview.close(ws);
+						}					
+				}*/
+				},
+				error:function(xhr,type,errorThrown){//异常处理；
+					console.log(xhr.Message+"  "+type+" "+errorThrown);
+				}
+			});
+    }	
+} 
+ </script>
+</html>
