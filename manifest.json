@@ -162,10 +162,15 @@
 					"fonts/mui.ttf",
 					"css/mui.min.css",
 					"js/update.js",
-					"list.html"
+					"list.html",
+					"pullrefresh_with_tab.html",
+					"images/i-pop-active.png"
 				],
 				"refer": [
-					"index-menu.html"
+					"index-menu.html",
+					"tab-webview-subpage-search.html",
+					"slider-with-title.html",
+					"menu.html"
 				],
 				"priority": 0
 			},
@@ -195,7 +200,9 @@
 				"resources": [
 					"js/mui.min.js",
 					"fonts/mui.ttf",
-					"css/mui.min.css"
+					"css/mui.min.css",
+					"js/arttmpl.js",
+					"images/60x60.gif"
 				],
 				"refer": [
 					"examples/template.html",
@@ -261,7 +268,8 @@
 					"examples/tableviews-with-swipe.html",
 					"examples/media-list.html",
 					"examples/nav.html",
-					"examples/numbox.html"
+					"examples/numbox.html",
+					"user-info.html"
 				],
 				"priority": 0
 			},
@@ -312,10 +320,16 @@
 				"resources": [
 					"fonts/mui.ttf",
 					"js/mui.min.js",
-					"css/mui.min.css"
+					"css/mui.min.css",
+					"images/60x60.gif"
 				],
 				"refer": [
-					"examples/offcanvas-drag-left.html"
+					"examples/offcanvas-drag-left.html",
+					"login.html",
+					"examples/pullrefresh_main.html",
+					"beecloud.html",
+					"releaseActivity.html",
+					"setting.html"
 				],
 				"priority": 0
 			},
@@ -1006,6 +1020,175 @@
 					"css/app.css",
 					"css/mui.min.css",
 					"js/mui.js"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"pullrefresh_with_tab.html": {
+				"resources": [
+					"js/mui.pullToRefresh.js",
+					"js/mui.pullToRefresh.material.js",
+					"js/hyappCommon.js",
+					"images/yuantiao.jpg"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"tab-webview-subpage-search.html": {
+				"resources": [
+					"js/mui.picker.js",
+					"js/mui.picker.min.js",
+					"js/mui.poppicker.js",
+					"js/city.data.js",
+					"css/mui.poppicker.css",
+					"css/mui.picker.min.css",
+					"css/mui.picker.css",
+					"js/city.data-3.js"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"slider-with-title.html": {
+				"resources": [
+					"js/mui.zoom.js",
+					"images/muwu.jpg",
+					"images/yuantiao.jpg",
+					"css/app.css",
+					"js/mui.previewimage.js",
+					"images/shuijiao.jpg",
+					"images/2.png",
+					"images/3.png",
+					"images/1.png",
+					"js/mui.min.js",
+					"images/4.png",
+					"css/mui.min.css"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"menu.html": {
+				"resources": [
+					"img/i-picture.png",
+					"js/mui.min.js",
+					"img/i-location.png",
+					"img/i-contact.png",
+					"fonts/mui.ttf",
+					"img/i-camera.png",
+					"img/i-editor.png",
+					"css/mui.min.css",
+					"img/i-headline.png",
+					"img/i-share.png",
+					"img/i-more.png"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"user-info.html": {
+				"resources": [
+					"images/muwu.jpg",
+					"js/mui.min.js",
+					"fonts/mui.ttf",
+					"js/hyappCommon.js",
+					"css/mui.min.css",
+					"images/60x60.gif"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"register.html": {
+				"resources": [
+					"js/common.js",
+					"images/60x60.gif",
+					"css/mui.picker.min.css",
+					"js/city.data-3.js",
+					"js/mui.min.js",
+					"fonts/mui.ttf",
+					"css/mui.min.css",
+					"js/mui.picker.min2.js"
+				],
+				"refer": [
+					"register-joblist.html",
+					"register-account.html"
+				],
+				"priority": 0
+			},
+			"login.html": {
+				"resources": [
+					"js/app.js",
+					"js/mui.min.js",
+					"fonts/mui.ttf",
+					"js/hyappCommon.js",
+					"css/mui.min.css"
+				],
+				"refer": [
+					"register.html"
+				],
+				"priority": 0
+			},
+			"register-joblist.html": {
+				"resources": [
+					"js/mui.min.js",
+					"css/mui.min.css",
+					"css/mui.indexedlist.css",
+					"js/mui.indexedlist.js",
+					"fonts/mui.ttf"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"register-account.html": {
+				"resources": [
+					"js/mui.min.js",
+					"css/mui.min.css",
+					"fonts/mui.ttf"
+				],
+				"refer": [
+					"register-phonenumber.html"
+				],
+				"priority": 0
+			},
+			"register-phonenumber.html": {
+				"resources": [
+					"js/mui.min.js",
+					"js/hyappCommon.js",
+					"css/mui.min.css",
+					"js/jquery.js",
+					"fonts/mui.ttf"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"beecloud.html": {
+				"resources": [
+					"js/beecloud.js",
+					"js/mui.min.js",
+					"fonts/mui.ttf",
+					"css/mui.min.css"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"releaseActivity.html": {
+				"resources": [
+					"js/mui.picker.min.js",
+					"js/mui.min.js",
+					"fonts/mui.ttf",
+					"js/hyappCommon.js",
+					"css/mui.min.css",
+					"css/mui.picker.min.css"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"setting.html": {
+				"resources": [
+					"js/app.js",
+					"js/mui.min.js",
+					"fonts/mui.ttf",
+					"css/mui.min.css",
+					"js/mui.locker.js",
+					"js/feedback.js",
+					"js/mui.view.js"
 				],
 				"refer": [],
 				"priority": 0

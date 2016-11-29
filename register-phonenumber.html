@@ -9,6 +9,11 @@
 <meta http-equiv="content-security-policy"> 
 	    <meta http-equiv="Access-Control-Allow-Origin" content="">
         <meta http-equiv="content-security-policy">
+        <style> a{color: red;}
+		.mui-bar>a,.mui-bar-tab .mui-tab-item.mui-active{
+			  color: red;
+			}
+		</style>
 </head>
 
 	<body>
@@ -270,7 +275,7 @@ function appendFile(path){
 					headimg:base64,
 					nickname:encodeURI(nickname),
 					sex:encodeURI(sex),
-					singleOrDouble:encodeURI(singleOrDouble),
+					singleOrDouble:encodeURI(singleOrDouble), 
 					birthday:birthday,
 					city:encodeURI(city),
 					job:encodeURI(job),
