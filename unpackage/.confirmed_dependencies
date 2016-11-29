@@ -5,6 +5,9 @@
 			"js/mui.pullToRefresh.material.js",
 			"js/hyappCommon.js",
 			"images/yuantiao.jpg"
+		],
+		"refer": [
+			"activity-info.html"
 		]
 	},
 	"index.html": {
@@ -210,6 +213,15 @@
 			"js/mui.locker.js",
 			"js/feedback.js",
 			"js/mui.view.js"
+		]
+	},
+	"activity-info.html": {
+		"resources": [
+			"js/mui.min.js",
+			"fonts/mui.ttf",
+			"js/hyappCommon.js",
+			"images/60x60.gif",
+			"css/mui.min.css"
 		]
 	}
 }
